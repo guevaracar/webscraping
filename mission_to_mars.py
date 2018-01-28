@@ -68,8 +68,8 @@ def scrape():
     tables = pd.read_html(mars_facts_url)
     df = pd.DataFrame(tables[0])
     # Renaming the DataFrame and settig the index to a renamed column
-    mars_facts_df.columns = ["Mars_Planet_Profile", "table_info"]
-    mars_df = mars_facts_df.set_index("Mars_Planet_Profile")
+    df.columns = ["Mars_Planet_Profile", "table_info"]
+    mars_df = df.set_index("Mars_Planet_Profile")
     # Converting the DataFrame into an HTML table and cleaning
     mars_table = mars_df.to_html(classes='marstable')
     mars_html_table = mars_table.replace('\n', ' ')

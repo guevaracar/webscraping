@@ -18,10 +18,10 @@
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
     </div>
       
-    <!-- mars data -->
+    <!-- latest mars news -->
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-12 col-xs-12">
+        <div class="col-md-6 col-xs-12">
           <h3>Latest Mars News</h3>
             <h4>{{ mars_info.Latest_News_Title }}</h4>        
             <p>{{ mars_info.Information }}</p>
@@ -58,7 +58,7 @@
      <hr>
      <div class="col-md-12 col-xs-12">
         <h3>Mars Planet Profile</h3>
-          <p>{{ mars_info.Mars_Planet_Profile | safe}}</p>
+          <p>{{ mars_info.mars_table | safe}}</p>
        </div>
      </div>
         
