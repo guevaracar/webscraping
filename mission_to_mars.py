@@ -59,23 +59,22 @@ def scrape():
         mars_weather = tweets.get_text()
         mars["Mars_Weather"] = mars_weather
     # ### Mars Facts
-    # 
+    # Execute the new url into a new window
     browser = Browser('chrome', headless=False)
     mars_facts_url = 'https://space-facts.com/mars/'
     browser.visit(mars_facts_url)
     time.sleep(2)
-    # 
+    # Converting the url table into a DataFrame
     tables = pd.read_html(mars_facts_url)
-    df = tables[0]
-    # 
-    mars_facts_df = df.rename(index=None, columns={0: "Mars_Planet_Profile", 1: "table_info"})
-    # 
-    planet_profile = mars_facts_df["Mars_Planet_Profile"]
-    planet_variables = mars_facts_df["table_info"]
-    final_facts = zip(planet_profile, planet_variables)
-    # 
-    for x, y in final_facts:
-        mars[x] = y
+    df = pd.DataFrame(tables[0])
+    # Renaming the DataFrame and settig the index to a renamed column
+    mars_facts_df.columns = ["Mars_Planet_Profile", "table_info"]
+    mars_df = mars_facts_df.set_index("Mars_Planet_Profile")
+    # Converting the DataFrame into an HTML table and cleaning
+    mars_table = mars_df.to_html(classes='marstable')
+    mars_html_table = mars_table.replace('\n', ' ')
+    # Adding the table to the mars dictionary
+    mars['mars_table'] = mars_html_table
     # ### Mars Hemisperes
     # * Visit the USGS Astrogeology site [here](https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars) to obtain high resolution images for each of Mar's hemispheres.
     # * Save both the image url string for the full resolution hemipshere image, and the Hemisphere title containing the hemisphere name. Use a Python dictionary to store the data using the keys `img_url` and `title`.
