@@ -8,10 +8,13 @@
   <title>Mars</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.google.com/?selection.family=Alegreya+Sans|Francois+One|Lora|Ubuntu">
 </head>
 
 <style>
-  
+  body {
+    background-color:lightslategray;
+  }
   .jumbotron {
     width: 100%;
     height: 300px;
@@ -22,18 +25,22 @@
     background-repeat: no-repeat;
   }
   #jumbotron-text {
-    font-family:fantasy;
+    font-family:Francois One;
     font: 275;
     font-style:inherit;
   }
   .mars-news-text {
-    text-align: center;
-    font-family: fantasy;
+    font-family: Ubuntu;
   }
-
+  .mars-news-title {
+    font-family: Ubuntu;
+  }
+  #mars-news-information {
+    text-align: inherit;
+    font-family: Ubuntu;
+  }
   .mars-weather-text{
     text-align: center;
-    color:black;
     font: bold;
   }
   .Featured-img {
@@ -45,10 +52,8 @@
   }
   .panel-body {
     text-align: center;
-    font-family: fantasy;
-  }
-  #mars-news-information {
-    text-align: inherit;
+    font-family: Francois One;
+    font-weight: bold;
   }
 
 </style>
@@ -69,10 +74,12 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <h3 class="mars-news-text">Latest Mars News</h3>
-          <h4 id="mars-news-title">{{ mars_info.Latest_News_Title }}</h4>        
-          <p id="mars-news-information">{{ mars_info.Information }}</p>
-      </div>
+        <div class="panel panel-primary panel-body">  
+          <h3 class="mars-news-text">Latest Mars News</h3>
+            <h4 id="mars-news-title">{{ mars_info.Latest_News_Title }}</h4>        
+            <p id="mars-news-information">{{ mars_info.Information }}</p>
+          </div>      
+        </div>
     </div>
     <div class="row">
       <div class ="col-md-9">
