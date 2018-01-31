@@ -1,0 +1,43 @@
+  .jumbotron {
+    width: 100%;
+    height: 300px;
+    background-image: url('{{mars_info.Feature_Image_Link}}');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+  }
+  #jumbotron-text {
+    font-family:fantasy;
+    font: 275;
+    font-style:inherit;
+  }
+  .mars-news-text {
+    text-align: center;
+    font-family: fantasy;
+  }
+
+  .mars-weather-text{
+    text-align: center;
+    color:black;
+    font: bold;
+  }
+  .Featured-img {
+    position: relative;
+    background-size: 100%;
+    width:100%;
+    padding: 1px;
+    
+  }
+  .panel-body {
+    text-align: center;
+    font-family: fantasy;
+  }
+  #mars-news-information {
+    text-align: inherit;
+  }
+
+  #mars-news-title {
+    text-align: inherit;
+    font-family: Helvetica;
+  }
